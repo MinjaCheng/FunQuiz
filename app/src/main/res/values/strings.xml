@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FunQuiz</string>
+    <string name="quiz">QUIZ</string>
+    <string name="quiz_title1">Fantastika Fakta</string>
+    <string name="quiz_title2">men Värdelöst Vetande</string>
+    <string name="button_play">Spela</string>
+
 </resources>
