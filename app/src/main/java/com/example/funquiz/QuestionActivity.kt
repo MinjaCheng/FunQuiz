@@ -2,6 +2,7 @@ package com.example.funquiz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 
@@ -25,9 +26,5 @@ class QuestionActivity : AppCompatActivity() {
         val guessButton3 = findViewById<Button>(R.id.guessButton3)
 
         guessButton3.text = "400 000 kr"
-
-
-
-
     }
 }
