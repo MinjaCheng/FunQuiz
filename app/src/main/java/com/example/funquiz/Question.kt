@@ -9,4 +9,3 @@ class Question (
     val optionThree: String,
     val correctOption: Int
 )
-
