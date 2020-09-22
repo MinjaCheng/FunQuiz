@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val pressPlayButton = findViewById<Button>(R.id.button)
+        val pressPlayButton = findViewById<Button>(R.id.playButton)
 
         pressPlayButton.setOnClickListener{
             val intent = Intent(this, PlayActivity::class.java)
