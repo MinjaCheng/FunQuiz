@@ -97,7 +97,7 @@ object ListOfQuestions {
             "20 %",
             2
         )
-        
+
         questionList.add(q8)
 
         return questionList
