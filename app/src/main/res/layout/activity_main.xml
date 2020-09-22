@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:text="@string/quiz"
-        android:textColor="#364DD1"
+        android:textColor="#1129AE"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
