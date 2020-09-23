@@ -2,6 +2,7 @@ package com.example.funquiz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 
@@ -9,7 +10,7 @@ class QuestionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
-        
+
         val question = findViewById<TextView>(R.id.questionTextView)
 
         question.text = getString(R.string.questionOne)
@@ -26,4 +27,13 @@ class QuestionActivity : AppCompatActivity() {
 
         guessButton3.text = "400 000 kr"
     }
+
+    fun addFactFragment(view: View) {
+
+        val factFragment = FactFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.viewFact, factFragment, "factFragment")
+        transaction.commit()
+    }
+
 }
