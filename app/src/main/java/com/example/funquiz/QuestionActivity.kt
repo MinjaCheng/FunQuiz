@@ -5,28 +5,51 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_question.*
 
-class QuestionActivity : AppCompatActivity() {
+class QuestionActivity : AppCompatActivity(){
+
+    private var currentPosition: Int = 1
+    private var questionsList: ArrayList<Question>? = null
+    private var selectedOptionPosition: Int = 0
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-        val question = findViewById<TextView>(R.id.questionTextView)
+        setQuestion()
 
-        question.text = getString(R.string.questionOne)
-
-        val guessButton1 = findViewById<Button>(R.id.optionButtonOne)
-
-        guessButton1.text = "25 000 kr"
-
-        val guessButton2 = findViewById<Button>(R.id.optionButtonTwo)
-
-        guessButton2.text = "97 000 kr"
-
-        val guessButton3 = findViewById<Button>(R.id.optionButtonThree)
-
-        guessButton3.text = "400 000 kr"
     }
+
+    private fun setQuestion(){
+        questionsList = ListOfQuestions.getQuestions()
+
+        currentPosition = 1
+        val question = questionsList!![currentPosition - 1]
+
+        textViewProgress.text = "$currentPosition" + "/" + "${questionsList!!.size}"
+
+        questionTextView.text = question!!.question
+        imageView.setImageResource(question.image)
+        optionButtonOne.text = question.optionOne
+        optionButtonTwo.text = question.optionTwo
+        optionButtonThree.text = question.optionThree
+    }
+
+    /*private fun defaultOptionsView(){
+        val options = ArrayList<Button>()
+        options.add(0,optionButtonOne)
+        options.add(1,optionButtonTwo)
+        options.add(2, optionButtonThree)
+
+        for (option in options){
+            option.typeface = Typeface.DEFAULT
+        }
+    }*/
 
     fun addFactFragment(view: View) {
 
@@ -34,6 +57,22 @@ class QuestionActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.viewFact, factFragment, "factFragment")
         transaction.commit()
+    }
+
+    private fun answerView(answer: Int, drawableView: Int){
+        when(answer){
+            1 -> {
+                optionButtonOne.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            2 -> {
+                optionButtonTwo.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            3 -> {
+                optionButtonThree.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            }
+        }
+
     }
 
 }
