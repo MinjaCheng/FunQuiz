@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/quiz_bg"
+    android:background="@drawable/ic_quiz_bg"
     tools:context=".MainActivity">
 
     <TextView
@@ -50,11 +50,12 @@
         android:id="@+id/playButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginBottom="50dp"
         android:layout_marginLeft="140dp"
+        android:layout_marginTop="300dp"
         android:layout_marginRight="140dp"
+        android:layout_marginBottom="50dp"
         android:background="#CDFF5722"
+        android:onClick="pressPlayButton"
         android:text="@string/button_play"
         android:textColor="#FFFFFF"
         android:textStyle="bold"

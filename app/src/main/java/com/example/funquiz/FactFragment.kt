@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_question.*
 
 class FactFragment : Fragment(){
 
-    lateinit var factText : TextView
+    lateinit var factText: TextView
+    lateinit var nextQuestion: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,6 +21,7 @@ class FactFragment : Fragment(){
     ): View? {
         val view = inflater.inflate(R.layout.fragment_fact, viewFact, false)
         factText = view.findViewById(R.id.factTextView)
+        nextQuestion = view.findViewById(R.id.nextViewButton)
         return view
     }
 

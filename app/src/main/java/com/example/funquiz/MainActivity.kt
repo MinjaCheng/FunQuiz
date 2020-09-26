@@ -11,12 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val pressPlayButton = findViewById<Button>(R.id.playButton)
 
-        pressPlayButton.setOnClickListener{
-            val intent = Intent(this, QuestionActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
+
+    fun pressPlayButton(view: View){
+        val intent = Intent(this, QuestionActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }

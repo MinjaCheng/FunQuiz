@@ -1,19 +1,21 @@
 package com.example.funquiz
 
+import android.graphics.Color
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_question.*
 
-class QuestionActivity : AppCompatActivity(){
+class QuestionActivity : AppCompatActivity() {
 
-    private var currentPosition: Int = 1
-    private var questionsList: ArrayList<Question>? = null
-    private var selectedOptionPosition: Int = 0
+    lateinit var questionsList: ArrayList<Question>
+    var currentPosition: Int = 1
+    var selectedOptionPosition: Int = 0
 
 
 
@@ -28,51 +30,74 @@ class QuestionActivity : AppCompatActivity(){
     private fun setQuestion(){
         questionsList = ListOfQuestions.getQuestions()
 
-        currentPosition = 1
-        val question = questionsList!![currentPosition - 1]
+        val question = questionsList[currentPosition - 1]
 
-        textViewProgress.text = "$currentPosition" + "/" + "${questionsList!!.size}"
+        textViewProgress.text = "$currentPosition" + "/" + "${questionsList!!.size}" // ***** fråga hur jag flyttar upp den till the bar
 
-        questionTextView.text = question!!.question
+        questionTextView.text = question.question
         imageView.setImageResource(question.image)
         optionButtonOne.text = question.optionOne
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
     }
 
-    /*private fun defaultOptionsView(){
-        val options = ArrayList<Button>()
-        options.add(0,optionButtonOne)
-        options.add(1,optionButtonTwo)
-        options.add(2, optionButtonThree)
 
-        for (option in options){
-            option.typeface = Typeface.DEFAULT
+    fun pressedButton(view: View) {
+
+        when (view.id) {
+            R.id.optionButtonOne -> {
+                selectedOption(1)
+            }
+            R.id.optionButtonTwo -> {
+                selectedOption(2)
+            }
+            R.id.optionButtonThree -> {
+                selectedOption(3)
+            }
         }
-    }*/
+    }
 
-    fun addFactFragment(view: View) {
+    private fun selectedOption(selectedOptionNum: Int) {
 
+        selectedOptionPosition = selectedOptionNum
+
+        if (selectedOptionPosition > 0) {
+            val question = questionsList.get(currentPosition - 1)
+            if (question.correctOption == selectedOptionPosition) {
+                //addFactFragment() // ********* Lägga till text
+
+            }else {
+                //addFactFragment()
+            }
+            currentPosition ++
+            setQuestion()  // ******** ska tas bort senare
+        }
+
+
+    }
+
+    fun addFactFragment() {
         val factFragment = FactFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.viewFact, factFragment, "factFragment")
         transaction.commit()
     }
 
-    private fun answerView(answer: Int, drawableView: Int){
-        when(answer){
-            1 -> {
-                optionButtonOne.background = ContextCompat.getDrawable(this, drawableView)
-            }
-            2 -> {
-                optionButtonTwo.background = ContextCompat.getDrawable(this, drawableView)
-            }
-            3 -> {
-                optionButtonThree.background = ContextCompat.getDrawable(this, drawableView)
-            }
-            }
-        }
+    /*fun changeText() {
+        val fragment = supportFragmentManager.findFragmentByTag("factFragment") as FactFragment?
 
+        fragment?.setText("Testing testing")
     }
+
+    fun nextQuestionButton(view: View) {
+
+        when {
+                currentPosition <= questionsList!!.size -> {
+                    setQuestion()
+                }else ->{
+                Toast.makeText(this,"Finish", Toast.LENGTH_SHORT).show()
+            }
+            }
+    }*/
 
 }

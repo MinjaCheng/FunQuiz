@@ -8,7 +8,7 @@ object ListOfQuestions {
         val q1 = questionList.add(Question(
             1,
             "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klass?",
-             R.drawable.olive,
+             R.drawable.ic_olive,
             "25 000 kr",
             "97 000 kr",
             "400 000 kr",
@@ -19,19 +19,18 @@ object ListOfQuestions {
         val q2 = questionList.add(Question(
             2,
             "Vilket djur tror du orsakar flest människors död i världen?",
-            R.drawable.dead,
+            R.drawable.ic_dead,
             "Ormar",
             "Mygg",
             "Den australienska kubmagneten",
             2,
             "Av alla jordens djur orsakar myggan fler dödsfall än något annat djur. Myggor sprider gula febern och malaria när de biter människor."
-
         ))
 
         val q3 = questionList.add(Question(
             3,
             "3. Vad tror du väger mest?",
-            R.drawable.hippo,
+            R.drawable.ic_hippo,
             "Blåvalens tunga",
             "Elefant",
             "Flodhäst",
@@ -42,10 +41,10 @@ object ListOfQuestions {
         val q4 = questionList.add(Question(
             4,
             "Hur många människor behövs det för att uppnå 50 % chans att någon fyller år samma dag som du?",
-            R.drawable.birthday_cake,
+            R.drawable.ic_birthday_cake,
             "23 personer",
             "100 personer",
-            "3000 personer",
+            "3 000 personer",
             1,
             "Du delar din födelsedag med åtminstone 9 miljoner andra människor i världen. Det behövs alltså endast 23 människor i ett rum för att uppnå 50 % chans att någon har samma födelsedag som du."
         ))
@@ -53,7 +52,7 @@ object ListOfQuestions {
         val q5 = questionList.add(Question(
             5,
             "Hur många skadar sig varje år av tandpetare?",
-            R.drawable.toothpick,
+            R.drawable.ic_toothpick,
             "150 personer",
             "2 500 personer",
             "8 800 personer",
@@ -64,7 +63,7 @@ object ListOfQuestions {
         val q6 = questionList.add(Question(
             6,
             "Hur många timmar tror du genomsnittsamerikanen spenderar under en livstid med att vänta vid rödljus?",
-            R.drawable.redlight,
+            R.drawable.ic_redlight,
             "2 veckor",
             "6 månader",
             "1 år",
@@ -75,7 +74,7 @@ object ListOfQuestions {
         val q7 = questionList.add(Question(
             7,
             "Hur många procent av hjärnan tror du består av vatten?",
-            R.drawable.brain,
+            R.drawable.ic_brain,
             "12 %",
             "42 %",
             "80 %",
@@ -86,7 +85,7 @@ object ListOfQuestions {
         val q8 = questionList.add(Question(
             8,
             "Hur många procent av befolkningen är vänsterhänta?",
-            R.drawable.lefthand,
+            R.drawable.ic_lefthand,
             "3 %",
             "10 %",
             "20 %",
