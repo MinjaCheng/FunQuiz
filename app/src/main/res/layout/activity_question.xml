@@ -81,10 +81,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
-        android:id="@+id/viewFact"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="228dp"
-        android:layout_marginBottom="230dp"
+        android:background="#D9D6DD"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"

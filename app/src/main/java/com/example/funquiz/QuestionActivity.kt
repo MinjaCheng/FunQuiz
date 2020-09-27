@@ -1,19 +1,13 @@
 package com.example.funquiz
 
-import android.graphics.Color
-import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity() {
 
-    lateinit var questionsList: ArrayList<Question>
+    private lateinit var questionsList: ArrayList<Question>
     var currentPosition: Int = 1
     var selectedOptionPosition: Int = 0
 
@@ -44,17 +38,27 @@ class QuestionActivity : AppCompatActivity() {
 
     fun pressedButton(view: View) {
 
-        when (view.id) {
-            R.id.optionButtonOne -> {
-                selectedOption(1)
-            }
-            R.id.optionButtonTwo -> {
-                selectedOption(2)
-            }
-            R.id.optionButtonThree -> {
-                selectedOption(3)
+        if (selectedOptionPosition == 0) {
+            optionButtonOne.visibility = View.VISIBLE
+            optionButtonTwo.visibility = View.VISIBLE
+            optionButtonThree.visibility = View.VISIBLE
+
+            when (view.id) {
+                R.id.optionButtonOne -> {
+                    selectedOption(1)
+                }
+                R.id.optionButtonTwo -> {
+                    selectedOption(2)
+                }
+                R.id.optionButtonThree -> {
+                    selectedOption(3)
+                }
             }
         }
+        optionButtonOne.visibility = View.INVISIBLE
+        optionButtonTwo.visibility = View.INVISIBLE
+        optionButtonThree.visibility = View.INVISIBLE
+        selectedOptionPosition = 0
     }
 
     private fun selectedOption(selectedOptionNum: Int) {
@@ -62,42 +66,43 @@ class QuestionActivity : AppCompatActivity() {
         selectedOptionPosition = selectedOptionNum
 
         if (selectedOptionPosition > 0) {
-            val question = questionsList.get(currentPosition - 1)
+            val question = questionsList[currentPosition - 1]
             if (question.correctOption == selectedOptionPosition) {
-                //addFactFragment() // ********* Lägga till text
+                addFactFragment("Rätt!") // ********* Lägga till text
+
 
             }else {
-                //addFactFragment()
+                //addFactFragment("Fel!")
             }
             currentPosition ++
-            setQuestion()  // ******** ska tas bort senare
+            //setQuestion()  // ******** ska tas bort senare
         }
 
 
     }
 
-    fun addFactFragment() {
+    fun addFactFragment(answer: String) {
         val factFragment = FactFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.viewFact, factFragment, "factFragment")
+        transaction.add(R.id.container, factFragment, "factFragment")
         transaction.commit()
     }
 
-    /*fun changeText() {
-        val fragment = supportFragmentManager.findFragmentByTag("factFragment") as FactFragment?
+    /*fun showFact() {
+         val fragment = supportFragmentManager.findFragmentByTag("factFragment") as FactFragment?
 
-        fragment?.setText("Testing testing")
-    }
+         fragment?.setText("Testing testing")
+     }
 
-    fun nextQuestionButton(view: View) {
+     fun nextQuestionButton(view: View) {
 
-        when {
-                currentPosition <= questionsList!!.size -> {
-                    setQuestion()
-                }else ->{
-                Toast.makeText(this,"Finish", Toast.LENGTH_SHORT).show()
-            }
-            }
-    }*/
+         when {
+                 currentPosition <= questionsList!!.size -> {
+                     setQuestion()
+                 }else ->{
+                 Toast.makeText(this,"Finish", Toast.LENGTH_SHORT).show()
+             }
+             }
+     }*/
 
 }

@@ -24,7 +24,7 @@
         android:layout_height="655dp"
         android:background="#AEFFFFFF"
         android:padding="20dp"
-        tools:text="TextView"
+        android:text="Under 1987 sparade American Airlines cirka 400 000 kr genom att ta bort en oliver från salladen som serverades i första klass. Ingen tycktes märka att antalet oliver minskats från fem till fyra."
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
