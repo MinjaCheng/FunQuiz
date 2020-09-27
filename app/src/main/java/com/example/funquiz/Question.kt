@@ -7,6 +7,6 @@ class Question (
     val optionOne: String,
     val optionTwo: String,
     val optionThree: String,
-    val correctOption: Int,
+    val correctOption: String,
     val fact: String
 )
