@@ -1,9 +1,11 @@
 package com.example.funquiz
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity() {
@@ -44,7 +46,6 @@ class QuestionActivity : AppCompatActivity() {
         val question = questionsList[currentPosition - 1]
 
 
-        //selectedOption(view.text)
         when (view.id) {
             R.id.optionButtonOne -> {
                 selectedOption(question.optionOne)
@@ -56,27 +57,29 @@ class QuestionActivity : AppCompatActivity() {
                 selectedOption(question.optionThree)
             }
         }
-
+        optionButtonOne.visibility = View.INVISIBLE
+        optionButtonTwo.visibility = View.INVISIBLE
+        optionButtonThree.visibility = View.INVISIBLE
     }
 
     private fun selectedOption(selectedOption: String) {
 
-        //selectedOptionPosition = selectedOption
-
-        //    if (selectedOptionPosition > 0) {
         val question = questionsList[currentPosition - 1]
         if (question.correctOption == selectedOption) {
-            //addFactFragment("Rätt!") // ********* Lägga till text
-            Log.d("!!!", "Rätt svar")
+            resultTextView.text = "Rätt!"
+
+            resultTextView.setTextColor(Color.parseColor("#00BB00"))
 
         } else {
-            Log.d("!!!", "Fel svar")
+            resultTextView.text ="$selectedOption" + " är fel!"
+
+            resultTextView.setTextColor(Color.parseColor("#BB0000"))
+
         }
-        optionButtonOne.visibility = View.INVISIBLE
-        optionButtonTwo.visibility = View.INVISIBLE
-        optionButtonThree.visibility = View.INVISIBLE
+        factTextView.text="Svaret är "+"${question.correctOption}"+"\n\n"+"${question.fact}"
+
+
         factCard.visibility = View.VISIBLE
-        //    }
     }
 
     fun nextQuestionButton(view: View) {
@@ -88,15 +91,6 @@ class QuestionActivity : AppCompatActivity() {
         optionButtonThree.visibility = View.VISIBLE
         currentPosition++
         setQuestion()
-
-
-        /*when {
-                currentPosition <= questionsList!!.size -> {
-                    setQuestion()
-                }else ->{
-                Toast.makeText(this,"Finish", Toast.LENGTH_SHORT).show()
-            }
-            }*/
     }
 
 }
