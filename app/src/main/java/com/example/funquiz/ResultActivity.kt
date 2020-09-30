@@ -24,19 +24,20 @@ class ResultActivity : AppCompatActivity() {
 
         scorePercentTextView.text = "Du fick $scorePercent % rätt."
 
-        if (scorePercent < 25){
-            credTextView.text = "Ok!"
+        when {
+            scorePercent < 25 -> {
+                credTextView.text = "Ok!"
+            }
+            scorePercent < 50 -> {
+                credTextView.text = "Bra!"
+            }
+            scorePercent < 75 -> {
+                credTextView.text = "Jättebra!"
+            }
+            else -> {
+                credTextView.text = "Utmärkt!"
+            }
         }
-        else if (scorePercent < 50){
-            credTextView.text = "Bra!"
-        }
-        else if (scorePercent < 75){
-            credTextView.text = "Jättebra!"
-        } else {
-           credTextView.text = "Utmärkt!"
-        }
-
-
     }
 
     fun playAgainButton (view: View) {
