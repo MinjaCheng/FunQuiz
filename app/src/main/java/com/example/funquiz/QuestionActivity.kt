@@ -1,5 +1,6 @@
 package com.example.funquiz
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,25 +12,26 @@ import kotlinx.android.synthetic.main.activity_question.*
 class QuestionActivity : AppCompatActivity() {
 
     lateinit var questionsList: ArrayList<Question>
-    var currentPosition: Int = 1
-    var selectedOptionPosition: Int = 0
+    private var currentPosition: Int = 1
+    private var correctAnswers: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
+        questionsList = ListOfQuestions.getQuestions()
+
         setQuestion()
 
     }
 
     private fun setQuestion() {
-        questionsList = ListOfQuestions.getQuestions()
 
         val question = questionsList[currentPosition - 1]
 
         textViewProgress.text =
-            "$currentPosition" + "/" + "${questionsList!!.size}" // ***** fråga hur jag flyttar upp den till the bar
+            "$currentPosition / ${questionsList!!.size}" // ***** fråga hur jag flyttar upp den till the bar
 
         questionTextView.text = question.question
         imageView.setImageResource(question.image)
@@ -41,10 +43,8 @@ class QuestionActivity : AppCompatActivity() {
 
 
     fun pressedButton(view: View) {
-        questionsList = ListOfQuestions.getQuestions()
 
         val question = questionsList[currentPosition - 1]
-
 
         when (view.id) {
             R.id.optionButtonOne -> {
@@ -65,32 +65,38 @@ class QuestionActivity : AppCompatActivity() {
     private fun selectedOption(selectedOption: String) {
 
         val question = questionsList[currentPosition - 1]
-        if (question.correctOption == selectedOption) {
-            resultTextView.text = "Rätt!"
 
+        if (question.correctOption == selectedOption) {
+
+            resultTextView.text = "Rätt!"
             resultTextView.setTextColor(Color.parseColor("#00BB00"))
+            correctAnswers++
 
         } else {
-            resultTextView.text ="$selectedOption" + " är fel!"
-
+            resultTextView.text = "$selectedOption är fel!"
             resultTextView.setTextColor(Color.parseColor("#BB0000"))
-
         }
-        factTextView.text="Svaret är "+"${question.correctOption}"+"\n\n"+"${question.fact}"
-
-
+        currentPosition++
+        factTextView.text = "Svaret är: ${question.correctOption}\n\n${question.fact}"
         factCard.visibility = View.VISIBLE
     }
 
     fun nextQuestionButton(view: View) {
 
-        factCard.visibility = View.INVISIBLE
+        if (currentPosition <= questionsList!!.size) {
+            factCard.visibility = View.INVISIBLE
 
-        optionButtonOne.visibility = View.VISIBLE
-        optionButtonTwo.visibility = View.VISIBLE
-        optionButtonThree.visibility = View.VISIBLE
-        currentPosition++
-        setQuestion()
+            optionButtonOne.visibility = View.VISIBLE
+            optionButtonTwo.visibility = View.VISIBLE
+            optionButtonThree.visibility = View.VISIBLE
+
+            setQuestion()
+        } else {
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra(ListOfQuestions.CORRECT_ANSWERS, correctAnswers)
+            intent.putExtra(ListOfQuestions.TOTAL_QUESTIONS, questionsList!!.size)
+            startActivity(intent)
+        }
     }
 
 }

@@ -2,6 +2,9 @@ package com.example.funquiz
 
 object ListOfQuestions {
 
+    const val TOTAL_QUESTIONS: String = "total_questions"
+    const val CORRECT_ANSWERS: String = "correct_answers"
+
     fun getQuestions(): ArrayList<Question> {
         val questionList = ArrayList<Question>()
 
@@ -13,7 +16,7 @@ object ListOfQuestions {
             "97 000 kr",
             "400 000 kr",
             "400 000 kr",
-            "Under 1987 sparade American Airlines cirka 400 000 kr genom att ta bort en oliver från salladen som serverades i första klass. Ingen tycktes märka att antalet oliver minskats från fem till fyra."
+            "Under 1987 sparade American Airlines cirka 400 000 kr genom att ta bort en oliv från salladen som serverades i första klass. Ingen tycktes märka att antalet oliver minskats från fem till fyra."
         ))
 
         questionList.add(Question(
