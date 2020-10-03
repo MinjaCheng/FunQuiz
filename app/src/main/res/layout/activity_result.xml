@@ -8,7 +8,7 @@
     tools:context=".ResultActivity">
 
     <TextView
-        android:id="@+id/resultTextView"
+        android:id="@+id/correctAnswerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -32,7 +32,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/correctAnswerTextView" />
 
     <TextView
         android:id="@+id/credTextView"

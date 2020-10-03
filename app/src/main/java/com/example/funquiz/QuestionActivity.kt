@@ -4,9 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity() {
@@ -39,6 +37,12 @@ class QuestionActivity : AppCompatActivity() {
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
 
+        if (currentPosition < questionsList!!.size) {
+            nextQueButton.text = "Nästa"
+        } else {
+            nextQueButton.text = "Klar"
+        }
+
     }
 
 
@@ -57,9 +61,8 @@ class QuestionActivity : AppCompatActivity() {
                 selectedOption(question.optionThree)
             }
         }
-        optionButtonOne.visibility = View.INVISIBLE
-        optionButtonTwo.visibility = View.INVISIBLE
-        optionButtonThree.visibility = View.INVISIBLE
+        toggleButtonAndCardView(true)
+        currentPosition++
     }
 
     private fun selectedOption(selectedOption: String) {
@@ -68,29 +71,25 @@ class QuestionActivity : AppCompatActivity() {
 
         if (question.correctOption == selectedOption) {
 
-            resultTextView.text = "Rätt!"
-            resultTextView.setTextColor(Color.parseColor("#00BB00"))
+            correctAnswerTextView.text = "Rätt!"
+            correctAnswerTextView.setTextColor(Color.parseColor("#00BB00"))
             correctAnswers++
 
         } else {
-            resultTextView.text = "$selectedOption är fel!"
-            resultTextView.setTextColor(Color.parseColor("#BB0000"))
+            correctAnswerTextView.text = "$selectedOption är fel!"
+            correctAnswerTextView.setTextColor(Color.parseColor("#BB0000"))
         }
-        currentPosition++
         factTextView.text = "Svaret är: ${question.correctOption}\n\n${question.fact}"
-        factCard.visibility = View.VISIBLE
     }
 
     fun nextQuestionButton(view: View) {
 
         if (currentPosition <= questionsList!!.size) {
-            factCard.visibility = View.INVISIBLE
 
-            optionButtonOne.visibility = View.VISIBLE
-            optionButtonTwo.visibility = View.VISIBLE
-            optionButtonThree.visibility = View.VISIBLE
+            toggleButtonAndCardView(false)
 
             setQuestion()
+
         } else {
             val intent = Intent(this, ResultActivity::class.java)
             intent.putExtra(ListOfQuestions.CORRECT_ANSWERS, correctAnswers)
@@ -99,4 +98,17 @@ class QuestionActivity : AppCompatActivity() {
         }
     }
 
+    private fun toggleButtonAndCardView(toggle: Boolean){
+        if (toggle){
+            factCard.visibility = View.VISIBLE
+            optionButtonOne.visibility = View.INVISIBLE
+            optionButtonTwo.visibility = View.INVISIBLE
+            optionButtonThree.visibility = View.INVISIBLE
+        } else {
+            factCard.visibility = View.INVISIBLE
+            optionButtonOne.visibility = View.VISIBLE
+            optionButtonTwo.visibility = View.VISIBLE
+            optionButtonThree.visibility = View.VISIBLE
+        }
+    }
 }
