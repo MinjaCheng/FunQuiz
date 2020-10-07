@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name"></string>
     <string name="quiz">QUIZ</string>
-    <string name="quiz_title1">Fantastika Fakta</string>
-    <string name="quiz_title2">men Värdelöst Vetande</string>
+    <string name="quiz_title">Rolig Fakta</string>
     <string name="button_play">Spela</string>
     <string name="questionOne">Hur mycket tror du att American Arilines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?</string>
 

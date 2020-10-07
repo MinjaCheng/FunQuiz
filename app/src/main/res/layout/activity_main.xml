@@ -7,44 +7,30 @@
     android:background="@drawable/ic_quiz_bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/quiz_title2"
-        android:textColor="#2196F3"
-        android:textSize="20sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/quizImageView"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scoreTextView" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:text="@string/quiz"
-        android:textColor="#1129AE"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_quiz_letters_1" />
 
     <TextView
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/quiz_title1"
-        android:textColor="#2196F3"
-        android:textSize="22sp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/quiz_title"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/quizImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/playButton"
@@ -53,7 +39,7 @@
         android:layout_marginLeft="140dp"
         android:layout_marginRight="140dp"
         android:layout_marginBottom="50dp"
-        android:background="#CDFF5722"
+        android:background="#E6FD6533"
         android:onClick="pressPlayButton"
         android:text="@string/button_play"
         android:textColor="#FFFFFF"
@@ -61,5 +47,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/thumbUpImageView"
+        android:layout_width="183dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizImageView"
+        app:srcCompat="@drawable/ic_smiley_face" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
