@@ -29,7 +29,7 @@ class QuestionActivity : AppCompatActivity() {
         val question = questionsList[currentPosition - 1]
 
         textViewProgress.text =
-            "$currentPosition / ${questionsList!!.size}" // ***** fråga hur jag flyttar upp den till the bar
+            "$currentPosition / ${questionsList.size}" // ***** fråga hur jag flyttar upp den till the bar
 
         questionTextView.text = question.question
         imageView.setImageResource(question.image)
@@ -37,7 +37,7 @@ class QuestionActivity : AppCompatActivity() {
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
 
-        if (currentPosition < questionsList!!.size) {
+        if (currentPosition < questionsList.size) {
             nextQueButton.text = "Nästa"
         } else {
             nextQueButton.text = "Klar"
@@ -84,7 +84,7 @@ class QuestionActivity : AppCompatActivity() {
 
     fun nextQuestionButton(view: View) {
 
-        if (currentPosition <= questionsList!!.size) {
+        if (currentPosition <= questionsList.size) {
 
             toggleButton(false)
 
@@ -93,7 +93,7 @@ class QuestionActivity : AppCompatActivity() {
         } else {
             val intent = Intent(this, ResultActivity::class.java)
             intent.putExtra(ListOfQuestions.CORRECT_ANSWERS, correctAnswers)
-            intent.putExtra(ListOfQuestions.TOTAL_QUESTIONS, questionsList!!.size)
+            intent.putExtra(ListOfQuestions.TOTAL_QUESTIONS, questionsList.size)
             startActivity(intent)
         }
     }

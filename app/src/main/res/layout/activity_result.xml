@@ -7,32 +7,30 @@
     android:background="@drawable/ic_quiz_bg"
     tools:context=".ResultActivity">
 
-    <TextView
-        android:id="@+id/correctAnswerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Resultat"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/fireworksImageView"
+        android:layout_width="match_parent"
+        android:layout_height="397dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_fireworks" />
 
     <TextView
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:text="8/8"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textColor="#040404"
+        android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correctAnswerTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
 
     <TextView
         android:id="@+id/credTextView"
@@ -41,6 +39,7 @@
         android:layout_marginTop="20dp"
         android:text="Utmärkt!"
         android:textAlignment="center"
+        android:textColor="#040404"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Du fick 100 % rätt"
+        android:textColor="#040404"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,13 +62,13 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginEnd="130dp"
         android:layout_marginBottom="50dp"
-        android:background="#CDFF5722"
+        android:background="#E6FD6533"
         android:onClick="playAgainButton"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:text="Spela igen"
         android:textColor="#FFFFFF"
         android:textSize="18dp"
@@ -75,5 +76,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/clappingEmojiImageView"
+        android:layout_width="151dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scorePercentTextView"
+        app:srcCompat="@drawable/ic_clapping" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Resultat"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
