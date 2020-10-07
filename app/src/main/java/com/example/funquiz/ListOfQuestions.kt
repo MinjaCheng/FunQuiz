@@ -96,6 +96,28 @@ object ListOfQuestions {
             "Med fördelningen 9% kvinnor och 11 % män. Det kan även nämnas att högerhänta lever i genomsnitt 9 år längre än vänsterhänta."
         ))
 
+        questionList.add(Question(
+            9,
+            "Hur många gånger per dag skrattar genomsnittspersonen?",
+            R.drawable.ic_laughing,
+            "1 gång",
+            "3 gånger",
+            "15 gånger",
+            "15 gånger",
+            "I snitt skrattar man runt 15 gånger per dag. Låter det mycket? Gör livet roligare då :-)"
+        ))
+
+        questionList.add(Question(
+            10,
+            "Hur mycket kan en arbetarmyra lyfta?",
+            R.drawable.ic_working_ant,
+            "50 gånger sin vikt",
+            "60 gånger sin vikt",
+            "80 gånger sin vikt",
+            "50 gånger sin vikt",
+            "Arbetarmyror kan lyfta 50 gånger sin vikt, och de kan dra 30 gånger sin vikt och när de förgiftas ramlar de alltid över på HÖGER sida."
+        ))
+
         return questionList
     }
 }

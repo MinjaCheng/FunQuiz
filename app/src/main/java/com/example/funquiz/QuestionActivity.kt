@@ -61,7 +61,7 @@ class QuestionActivity : AppCompatActivity() {
                 selectedOption(question.optionThree)
             }
         }
-        toggleButtonAndCardView(true)
+        toggleButton(true)
         currentPosition++
     }
 
@@ -86,7 +86,7 @@ class QuestionActivity : AppCompatActivity() {
 
         if (currentPosition <= questionsList!!.size) {
 
-            toggleButtonAndCardView(false)
+            toggleButton(false)
 
             setQuestion()
 
@@ -98,7 +98,7 @@ class QuestionActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleButtonAndCardView(toggle: Boolean){
+    private fun toggleButton(toggle: Boolean){
         if (toggle){
             factCard.visibility = View.VISIBLE
             optionButtonOne.visibility = View.INVISIBLE
