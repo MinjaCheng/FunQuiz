@@ -7,25 +7,27 @@
     android:background="@drawable/ic_quiz_bg"
     tools:context=".ResultActivity">
 
-    <ImageView
-        android:id="@+id/fireworksImageView"
-        android:layout_width="match_parent"
-        android:layout_height="397dp"
-        android:layout_marginTop="4dp"
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Resultat"
+        android:textColor="#E6FD6533"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_fireworks" />
+        app:layout_constraintTop_toTopOf="@+id/frameImageView" />
 
     <TextView
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="8/8"
+        android:layout_marginTop="60dp"
+        android:text="10/10"
         android:textAlignment="center"
-        android:textColor="#040404"
+        android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +41,7 @@
         android:layout_marginTop="20dp"
         android:text="Utmärkt!"
         android:textAlignment="center"
-        android:textColor="#040404"
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Du fick 100 % rätt"
-        android:textColor="#040404"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +66,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="60dp"
         android:background="#E6FD6533"
         android:onClick="playAgainButton"
         android:paddingStart="30dp"
@@ -78,26 +80,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/clappingEmojiImageView"
-        android:layout_width="151dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/frameImageView"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scorePercentTextView"
-        app:srcCompat="@drawable/ic_clapping" />
-
-    <TextView
-        android:id="@+id/resultTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Resultat"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.547"
+        app:srcCompat="@drawable/ic_whiteframe_resultscreen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
