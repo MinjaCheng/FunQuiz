@@ -1,17 +1,22 @@
 package com.example.funquiz
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity() {
 
     lateinit var questionsList: ArrayList<Question>
-    private var currentPosition: Int = 1
+    lateinit var question: Question
+    private var currentPosition: Int = 0
     private var correctAnswers: Int = 0
+    private var dotArray = mutableListOf<ImageView>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,17 +24,27 @@ class QuestionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_question)
 
         questionsList = ListOfQuestions.getQuestions()
-
+        createDots(questionsList.size)
         setQuestion()
 
     }
 
+    private fun createDots (count: Int){
+
+        for (i in 0 until count){
+            val dotImage = ImageView(this)
+            dotArray.add(dotImage)
+            dotImage.setImageResource(R.drawable.ic_dot_inactive)
+            dotLinearLayout.addView(dotImage)
+
+        }
+    }
+
     private fun setQuestion() {
 
-        val question = questionsList[currentPosition - 1]
+        question = questionsList[currentPosition]
 
-        textViewProgress.text =
-            "$currentPosition / ${questionsList.size}" // ***** fråga hur jag flyttar upp den till the bar
+        dotArray[currentPosition].setImageResource(R.drawable.ic_dot_active)
 
         questionTextView.text = question.question
         imageView.setImageResource(question.image)
@@ -37,18 +52,16 @@ class QuestionActivity : AppCompatActivity() {
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
 
-        if (currentPosition < questionsList.size) {
-            nextQueButton.text = "Nästa"
+        if (currentPosition < questionsList.size -1) {
+            nextQueButton.text = getString(R.string.nextQueButton_next)
         } else {
-            nextQueButton.text = "Klar"
+            nextQueButton.text = getString(R.string.nextQueButton_finish)
         }
 
     }
 
 
     fun pressedButton(view: View) {
-
-        val question = questionsList[currentPosition - 1]
 
         when (view.id) {
             R.id.optionButtonOne -> {
@@ -65,26 +78,27 @@ class QuestionActivity : AppCompatActivity() {
         currentPosition++
     }
 
+    @SuppressLint("StringFormatMatches")
     private fun selectedOption(selectedOption: String) {
-
-        val question = questionsList[currentPosition - 1]
 
         if (question.correctOption == selectedOption) {
 
-            correctAnswerTextView.text = "Rätt!"
+            correctAnswerTextView.text = getString(R.string.correctAnswer_correct)
             correctAnswerTextView.setTextColor(Color.parseColor("#00BB00"))
+            dotArray[currentPosition].setImageResource(R.drawable.ic_dot_correct)
             correctAnswers++
 
         } else {
-            correctAnswerTextView.text = "$selectedOption är fel!"
+            correctAnswerTextView.text = getString(R.string.correctAnswer_wrong, selectedOption)
             correctAnswerTextView.setTextColor(Color.parseColor("#BB0000"))
+            dotArray[currentPosition].setImageResource(R.drawable.ic_dot_incorrect)
         }
-        factTextView.text = "Svaret är: ${question.correctOption}\n\n${question.fact}"
+        factTextView.text = getString(R.string.fact, question.correctOption, question.fact)
     }
 
     fun nextQuestionButton(view: View) {
 
-        if (currentPosition <= questionsList.size) {
+        if (currentPosition < questionsList.size) {
 
             toggleButton(false)
 
