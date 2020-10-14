@@ -1,8 +1,100 @@
 <resources>
-    <string name="app_name"></string>
-    <string name="quiz">QUIZ</string>
-    <string name="quiz_title">Rolig Fakta</string>
-    <string name="button_play">Spela</string>
-    <string name="questionOne">Hur mycket tror du att American Arilines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?</string>
+    <string name="app_name">FunQuiz</string>
 
+    // activity_main.xml
+    <string name="quiz_title">Fun Fact</string>
+    <string name="button_play">Play</string>
+
+    // QuestionActivity.kt
+    <string name="nextQueButton_next">Next</string>
+    <string name="nextQueButton_finish">Finish</string>
+    <string name="correctAnswer_correct">Correct!</string>
+    <string name="correctAnswer_wrong">%1$s is wrong!</string>
+    <string name="fact">The answer is: %1$s<br>\n\n</br>%2$s</string>
+
+    // activity_result.xml
+    <string name="heading_result_text">Result</string>
+    <string name="score_text">10/10</string>
+    <string name="cred_text">Excellent!</string>
+    <string name="score_percent_text">You got 100% right</string>
+    <string name="play_again_button">Play again</string>
+
+    // ResultActivity.kt
+    <string name="score_tv">%1$s / %2$s</string>
+    <string name="score_percent_tv">You got %1$s %% right</string>
+    <string name="cred_tv_ok">OK!</string>
+    <string name="cred_tv_good">Good!</string>
+    <string name="cred_tv_very_good">Very good!</string>
+    <string name="cred_tv_excellent">Excellent!</string>
+
+    // ListOfQuestions.kt
+    <string name="qOne">How much do you think American Airlines saved per year when they removed an olive from the first-class salad in 1987?</string>
+    <string name="qOne_optOne">SEK 25 000</string>
+    <string name="qOne_optTwo">SEK 97 000</string>
+    <string name="qOne_optThree">SEK 400 000</string>
+    <string name="qOne_correctOpt">SEK 400 000</string>
+    <string name="qOne_fact">In 1987, American Airlines saved approx SEK 400 000 by removing an olive from the salad that was served in the first class. No one seemed to notice that the number of olives was reduced from five to four.</string>
+
+    <string name="qTwo">Which animal do you think causes the most human deaths in the world?</string>
+    <string name="qTwo_optOne">Snake</string>
+    <string name="qTwo_optTwo">Mosquito</string>
+    <string name="qTwo_optThree">The Australian cube magnet</string>
+    <string name="qTwo_correctOpt">Mosquito</string>
+    <string name="qTwo_fact">Of all the animals on earth, the mosquito causes more deaths than any other animal. Mosquitoes spread yellow fever and malaria when they bite humans.</string>
+
+    <string name="qThree">What do you think weighs the most?</string>
+    <string name="qThree_optOne">Hippo</string>
+    <string name="qThree_optTwo">Elephant</string>
+    <string name="qThree_optThree">The blue whale\'s tongue</string>
+    <string name="qThree_correctOpt">The blue whale\'s tongue</string>
+    <string name="qThree_fact">The entire blue whale (which grows up to 30 m long) can weigh up to 150 tons, 200 tons according to some, which is about 25 adult elephants.</string>
+
+    <string name="qFour">How many people are needed to achieve a 50 % chance of someone is having birthday the same day as you?</string>
+    <string name="qFour_optOne">23 people</string>
+    <string name="qFour_optTwo">100 people</string>
+    <string name="qFour_optThree">3 000 people</string>
+    <string name="qFour_correctOpt">23 people</string>
+    <string name="qFour_fact">You share your birthday with at least 9 million other people in the world. It only takes 23 people in a room to achieve a 50 % chance that someone has the same birthday as you.</string>
+
+    <string name="qFive">How many people get injured each year by toothpicks?</string>
+    <string name="qFive_optOne">650 people</string>
+    <string name="qFive_optTwo">2 500 people</string>
+    <string name="qFive_optThree">8 800 people</string>
+    <string name="qFive_correctOpt">8 800 people</string>
+    <string name="qFive_fact">8 800 klantskallar skadar sig själva varje år med en tandpetare.</string>
+
+    <string name="qSix">How much do you think the average American spends in a lifetime waiting at a red light?</string>
+    <string name="qSix_optOne">2 weeks</string>
+    <string name="qSix_optTwo">6 months</string>
+    <string name="qSix_optThree">1 year</string>
+    <string name="qSix_correctOpt">6 months</string>
+    <string name="qSix_fact">The average American spends an average of 6 months of his life waiting at a red light.</string>
+
+    <string name="qSeven">What percentage of the brain do you think is made up of water?</string>
+    <string name="qSeven_optOne">18 %</string>
+    <string name="qSeven_optTwo">42 %</string>
+    <string name="qSeven_optThree">80 %</string>
+    <string name="qSeven_correctOpt">80 %</string>
+    <string name="qSeven_fact">In total, the body consists of 70% water. 90% of the body consists of hydrogen, oxygen, carbon and nitrogen.</string>
+
+    <string name="qEight">What percentage of the population is left-handed?</string>
+    <string name="qEight_optOne">3 %</string>
+    <string name="qEight_optTwo">20 %r</string>
+    <string name="qEight_optThree">10 %</string>
+    <string name="qEight_correctOpt">10 %</string>
+    <string name="qEight_fact">With a distribution of 9% women and 11% men.</string>
+
+    <string name="qNine">How many times a day does the average person laugh?</string>
+    <string name="qNine_optOne">1 time</string>
+    <string name="qNine_optTwo">3 times</string>
+    <string name="qNine_optThree">15 times</string>
+    <string name="qNine_correctOpt">15 times</string>
+    <string name="qNine_fact">On average, we laugh around 15 times a day. Does it sound like a lot? Make life more fun then ;)</string>
+
+    <string name="qTen">How much can a worker ant lift?</string>
+    <string name="qTen_optOne">15 times its weight</string>
+    <string name="qTen_optTwo">50 times its weight</string>
+    <string name="qTen_optThree">70 times its weight</string>
+    <string name="qTen_correctOpt">50 times its weight</string>
+    <string name="qTen_fact">Worker ants can lift 50 times and pull 30 times their weight and when they get poisoned, they always fall over on the right side.</string>
 </resources>

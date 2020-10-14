@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FunQuiz</string>
+
+    // activity_main.xml
+    <string name="quiz_title">Rolig Fakta</string>
+    <string name="button_play">Spela</string>
+
+    // QuestionActivity.kt
+    <string name="nextQueButton_next">Nästa</string>
+    <string name="nextQueButton_finish">Klar</string>
+    <string name="correctAnswer_correct">Rätt!</string>
+    <string name="correctAnswer_wrong">%1$s är fel!</string>
+    <string name="fact">Svaret är: %1$s<br>\n\n</br>%2$s</string>
+
+    // activity_result.xml
+    <string name="heading_result_text">Resultat</string>
+    <string name="score_text">10/10</string>
+    <string name="cred_text">Utmärkt!</string>
+    <string name="score_percent_text">Du fick 100% rätt</string>
+    <string name="play_again_button">Spela igen</string>
+
+    // ResultActivity.kt
+    <string name="score_tv">%1$s / %2$s</string>
+    <string name="score_percent_tv">Du fick %1$s %% rätt</string>
+    <string name="cred_tv_ok">Ok!</string>
+    <string name="cred_tv_good">Bra!</string>
+    <string name="cred_tv_very_good">Jättebra!</string>
+    <string name="cred_tv_excellent">Utmärkt!</string>
+
+    // ListOfQuestions.kt
+    <string name="qOne">Hur mycket tror du att American Arilines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?</string>
+    <string name="qOne_optOne">25 000 kr</string>
+    <string name="qOne_optTwo">97 000 kr</string>
+    <string name="qOne_optThree">400 000 kr</string>
+    <string name="qOne_correctOpt">400 000 kr</string>
+    <string name="qOne_fact">Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4.</string>
+
+    <string name="qTwo">Vilket djur tror du orsakar flest människors död i världen?</string>
+    <string name="qTwo_optOne">Ormar</string>
+    <string name="qTwo_optTwo">Mygg</string>
+    <string name="qTwo_optThree">Den australienska kubmagneten</string>
+    <string name="qTwo_correctOpt">Mygg</string>
+    <string name="qTwo_fact">Av alla jordens djur orsakar myggan fler dödsfall än något annat djur. Myggor sprider gula febern och malaria när de biter människor.</string>
+
+    <string name="qThree">Vad tror du väger mest?</string>
+    <string name="qThree_optOne">Flodhäst</string>
+    <string name="qThree_optTwo">Elefant</string>
+    <string name="qThree_optThree">Blåvalens tunga</string>
+    <string name="qThree_correctOpt">Blåvalens tunga</string>
+    <string name="qThree_fact">Hela blåvalen (som blir upp till 30 m lång) kan väga upp till 150 ton, 200 ton enligt vissa, vilket motsvarar ca 25 fullvuxna elefanter.</string>
+
+    <string name="qFour">Hur många människor behövs det för att uppnå 50 % chans att någon fyller år samma dag som du?</string>
+    <string name="qFour_optOne">23 personer</string>
+    <string name="qFour_optTwo">100 personer</string>
+    <string name="qFour_optThree">3 000 personer</string>
+    <string name="qFour_correctOpt">23 personer</string>
+    <string name="qFour_fact">Du delar din födelsedag med åtminstone 9 miljoner andra människor i världen. Det behövs alltså endast 23 människor i ett rum för att uppnå 50 % chans att någon har samma födelsedag som du.</string>
+
+    <string name="qFive">Hur många skadar sig varje år av tandpetare?</string>
+    <string name="qFive_optOne">650 personer</string>
+    <string name="qFive_optTwo">2 500 personer</string>
+    <string name="qFive_optThree">8 800 personer</string>
+    <string name="qFive_correctOpt">8 800 personer</string>
+    <string name="qFive_fact">8 800 klantskallar skadar sig själva varje år med en tandpetare.</string>
+
+    <string name="qSix">Hur mycket tror du att genomsnittsamerikanen spenderar under en livstid med att vänta vid rödljus?</string>
+    <string name="qSix_optOne">2 veckor</string>
+    <string name="qSix_optTwo">6 månader</string>
+    <string name="qSix_optThree">1 år</string>
+    <string name="qSix_correctOpt">6 månader</string>
+    <string name="qSix_fact">Genomsnittsamerikanen spenderar i snitt 6 månader av sin livstid att vänta vid rödljus.</string>
+
+    <string name="qSeven">Hur många procent av hjärnan tror du består av vatten?</string>
+    <string name="qSeven_optOne">18 %</string>
+    <string name="qSeven_optTwo">42 %</string>
+    <string name="qSeven_optThree">80 %</string>
+    <string name="qSeven_correctOpt">80 %</string>
+    <string name="qSeven_fact">Totalt sett består kroppen till 70% av vatten. 90 % av kroppen består av väte, syre, kol och kväve.</string>
+
+    <string name="qEight">Hur många procent av befolkningen är vänsterhänta?</string>
+    <string name="qEight_optOne">3 %</string>
+    <string name="qEight_optTwo">10 %</string>
+    <string name="qEight_optThree">20 %</string>
+    <string name="qEight_correctOpt">10 %</string>
+    <string name="qEight_fact">Med fördelningen 9% kvinnor och 11 % män.</string>
+
+    <string name="qNine">Hur många gånger per dag skrattar genomsnittspersonen?</string>
+    <string name="qNine_optOne">1 gång</string>
+    <string name="qNine_optTwo">3 gånger</string>
+    <string name="qNine_optThree">15 gånger</string>
+    <string name="qNine_correctOpt">15 gånger</string>
+    <string name="qNine_fact">I snitt skrattar vi runt 15 gånger per dag. Låter det mycket? Gör livet roligare då ;)</string>
+
+    <string name="qTen">Hur mycket kan en arbetarmyra lyfta?</string>
+    <string name="qTen_optOne">15 gånger sin vikt</string>
+    <string name="qTen_optTwo">50 gånger sin vikt</string>
+    <string name="qTen_optThree">70 gånger sin vikt</string>
+    <string name="qTen_correctOpt">50 gånger sin vikt</string>
+    <string name="qTen_fact">Arbetarmyror kan lyfta 50 gånger sin vikt, och de kan dra 30 gånger sin vikt och när de förgiftas ramlar de alltid över på höger sida.</string>
+</resources>
