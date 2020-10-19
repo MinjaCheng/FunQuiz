@@ -10,6 +10,9 @@ import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_question.*
 
+const val TOTAL_QUESTIONS: String = "total_questions"
+const val CORRECT_ANSWERS: String = "correct_answers"
+
 class QuestionActivity : AppCompatActivity() {
 
     lateinit var questionsList: ArrayList<Question>
@@ -20,23 +23,24 @@ class QuestionActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-        questionsList = ListOfQuestions.getQuestions()
+        questionsList = ListOfQuestions(this).getQuestions()
         createDots(questionsList.size)
-        setQuestion()
 
+        setQuestion()
     }
 
-    private fun createDots (count: Int){
+    private fun createDots(count: Int) {
 
-        for (i in 0 until count){
+        for (i in 0 until count) {
+
             val dotImage = ImageView(this)
             dotArray.add(dotImage)
             dotImage.setImageResource(R.drawable.ic_dot_inactive)
             dotLinearLayout.addView(dotImage)
-
         }
     }
 
@@ -52,14 +56,12 @@ class QuestionActivity : AppCompatActivity() {
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
 
-        if (currentPosition < questionsList.size -1) {
+        if (currentPosition < questionsList.size - 1) {
             nextQueButton.text = getString(R.string.nextQueButton_next)
         } else {
             nextQueButton.text = getString(R.string.nextQueButton_finish)
         }
-
     }
-
 
     fun pressedButton(view: View) {
 
@@ -87,7 +89,6 @@ class QuestionActivity : AppCompatActivity() {
             correctAnswerTextView.setTextColor(Color.parseColor("#00BB00"))
             dotArray[currentPosition].setImageResource(R.drawable.ic_dot_correct)
             correctAnswers++
-
         } else {
             correctAnswerTextView.text = getString(R.string.correctAnswer_wrong, selectedOption)
             correctAnswerTextView.setTextColor(Color.parseColor("#BB0000"))
@@ -106,14 +107,15 @@ class QuestionActivity : AppCompatActivity() {
 
         } else {
             val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra(ListOfQuestions.CORRECT_ANSWERS, correctAnswers)
-            intent.putExtra(ListOfQuestions.TOTAL_QUESTIONS, questionsList.size)
+            intent.putExtra(CORRECT_ANSWERS, correctAnswers)
+            intent.putExtra(TOTAL_QUESTIONS, questionsList.size)
             startActivity(intent)
         }
     }
 
-    private fun toggleButton(toggle: Boolean){
-        if (toggle){
+    private fun toggleButton(toggle: Boolean) {
+
+        if (toggle) {
             factCard.visibility = View.VISIBLE
             optionButtonOne.visibility = View.INVISIBLE
             optionButtonTwo.visibility = View.INVISIBLE

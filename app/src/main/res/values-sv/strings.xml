@@ -29,7 +29,7 @@
     <string name="cred_tv_excellent">Utmärkt!</string>
 
     // ListOfQuestions.kt
-    <string name="qOne">Hur mycket tror du att American Arilines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?</string>
+    <string name="qOne">Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?</string>
     <string name="qOne_optOne">25 000 kr</string>
     <string name="qOne_optTwo">97 000 kr</string>
     <string name="qOne_optThree">400 000 kr</string>
@@ -83,7 +83,7 @@
     <string name="qEight_optTwo">10 %</string>
     <string name="qEight_optThree">20 %</string>
     <string name="qEight_correctOpt">10 %</string>
-    <string name="qEight_fact">Med fördelningen 9% kvinnor och 11 % män.</string>
+    <string name="qEight_fact">Med fördelningen 9% kvinnor och 11 % män. Enligt en populär myt lever vänsterhänta 9 år kortare än högerhänta.</string>
 
     <string name="qNine">Hur många gånger per dag skrattar genomsnittspersonen?</string>
     <string name="qNine_optOne">1 gång</string>

@@ -14,8 +14,8 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val correctAnswer = intent.getIntExtra(ListOfQuestions.CORRECT_ANSWERS, 0)
-        val totalQuestions = intent.getIntExtra(ListOfQuestions.TOTAL_QUESTIONS, 0)
+        val correctAnswer = intent.getIntExtra(CORRECT_ANSWERS, 0)
+        val totalQuestions = intent.getIntExtra(TOTAL_QUESTIONS, 0)
 
         scoreTextView.text = getString(R.string.score_tv, correctAnswer, totalQuestions)
 

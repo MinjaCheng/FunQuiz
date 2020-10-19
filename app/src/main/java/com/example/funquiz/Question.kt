@@ -1,6 +1,6 @@
 package com.example.funquiz
 
-class Question (
+class Question(
     val id: Int,
     val question: String,
     val image: Int,

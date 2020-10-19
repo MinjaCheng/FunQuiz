@@ -33,14 +33,14 @@
     <string name="qOne_optTwo">SEK 97 000</string>
     <string name="qOne_optThree">SEK 400 000</string>
     <string name="qOne_correctOpt">SEK 400 000</string>
-    <string name="qOne_fact">In 1987, American Airlines saved approx SEK 400 000 by removing an olive from the salad that was served in the first class. No one seemed to notice that the number of olives was reduced from five to four.</string>
+    <string name="qOne_fact">In 1987, American Airlines saved approx. SEK 400 000 by removing one olive from the salad that was served in the first class. No one seemed to notice that the number of olives was reduced from five to four.</string>
 
     <string name="qTwo">Which animal do you think causes the most human deaths in the world?</string>
     <string name="qTwo_optOne">Snake</string>
     <string name="qTwo_optTwo">Mosquito</string>
     <string name="qTwo_optThree">The Australian cube magnet</string>
     <string name="qTwo_correctOpt">Mosquito</string>
-    <string name="qTwo_fact">Of all the animals on earth, the mosquito causes more deaths than any other animal. Mosquitoes spread yellow fever and malaria when they bite humans.</string>
+    <string name="qTwo_fact">Of all the animals on earth, the mosquito causes more deaths than any other animals. Mosquitoes spread yellow fever and malaria when they bite humans.</string>
 
     <string name="qThree">What do you think weighs the most?</string>
     <string name="qThree_optOne">Hippo</string>
@@ -79,10 +79,10 @@
 
     <string name="qEight">What percentage of the population is left-handed?</string>
     <string name="qEight_optOne">3 %</string>
-    <string name="qEight_optTwo">20 %r</string>
+    <string name="qEight_optTwo">20 %</string>
     <string name="qEight_optThree">10 %</string>
     <string name="qEight_correctOpt">10 %</string>
-    <string name="qEight_fact">With a distribution of 9% women and 11% men.</string>
+    <string name="qEight_fact">With a distribution of 9% women and 11% men. According to a popular myth, left-handers live 9 years shorter than right-handers.</string>
 
     <string name="qNine">How many times a day does the average person laugh?</string>
     <string name="qNine_optOne">1 time</string>
