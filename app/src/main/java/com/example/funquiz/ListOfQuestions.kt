@@ -4,8 +4,8 @@ import android.content.Context
 
 class ListOfQuestions(private val context: Context) {
 
-
     fun getQuestions(): ArrayList<Question> {
+
         val questionList = ArrayList<Question>()
 
         questionList.add(
