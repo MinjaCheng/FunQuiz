@@ -37,7 +37,7 @@
     <string name="qOne_fact">Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4.</string>
 
     <string name="qTwo">Vilket djur tror du orsakar flest människors död i världen?</string>
-    <string name="qTwo_optOne">Ormar</string>
+    <string name="qTwo_optOne">Orm</string>
     <string name="qTwo_optTwo">Mygg</string>
     <string name="qTwo_optThree">Den australienska kubmagneten</string>
     <string name="qTwo_correctOpt">Mygg</string>
