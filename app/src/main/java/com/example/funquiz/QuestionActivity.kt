@@ -32,18 +32,19 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         job = Job()
         db = AppDatabase.getInstance(this)
 
-        addQuestion(
-            Question(
-                0,
-                "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?",
-                "ic_olive",
-                "25 000 kr",
-                "97 000 kr",
-                "400 000 kr",
-                "400 000 kr",
-                "Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4."
-            )
+        val q1 = Question(
+            0,
+            "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?",
+            "ic_olive",
+            "25 000 kr",
+            "97 000 kr",
+            "400 000 kr",
+            "400 000 kr",
+            "Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4."
         )
+
+        Log.d("!!!", "Add questions function: $question")
+        addQuestion(q1)
 
 
         launch {
@@ -65,13 +66,14 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
     fun addQuestion(question: Question) {
         Log.d("!!!", "ADDING $question")
         launch(Dispatchers.IO) {
+            Log.d("!!!", "QuestionDao INSERT: $question")
             db.questionDao.insert(question)
         }
     }
 
     fun loadAllQuestions(): Deferred<List<Question>> =
         async(Dispatchers.IO){
-            Log.d("!!!", "ADDING $question")
+            Log.d("!!!", "GetAll: $question")
             db.questionDao.getAll()
         }
     }
