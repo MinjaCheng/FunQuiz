@@ -37,42 +37,47 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
         job = Job()
         db = AppDatabase.getInstance(this)
-/*
-        addQuestion(Question(
-            0,
-            "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?",
-            "ic_olive",
-            "25 000 kr",
-            "97 000 kr",
-            "400 000 kr",
-            "400 000 kr",
-            "Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4."
-        ))
-*/
-        loadAllWords()
 
-     //   questionsList = ListOfQuestions(this).getQuestions()
-     //   createDots(questionsList.size)
+        addQuestion(
+            Question(
+                0,
+                "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?",
+                "ic_olive",
+                "25 000 kr",
+                "97 000 kr",
+                "400 000 kr",
+                "400 000 kr",
+                "Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4."
+            )
+        )
 
-    //   setQuestion()
+        val questions = loadAllQuestions()
+
+        launch {
+            val questionList = questions.await()
+            for (question in questionList) {
+                Log.d("!!!", "item: $question")
+            }
+
+            //   questionsList = ListOfQuestions(this).getQuestions()
+            //   createDots(questionsList.size)
+
+            //   setQuestion()
+        }
     }
-
-    private fun addQuestion(question: Question) {
+    fun addQuestion(question: Question) {
 
         launch(Dispatchers.IO) {
             db.questionDao.insert(question)
         }
     }
 
-    fun loadAllWords() {
-        val words = async(Dispatchers.IO){
+    fun loadAllQuestions(): Deferred<List<Question>> =
+        async(Dispatchers.IO){
             db.questionDao.getAll()
         }
 
-        launch {
-            val list = words.await().toMutableList()
-            questionsList = ListOfQuestions(list)
-        }
+
     }
 /*
     private fun createDots(count: Int) {
