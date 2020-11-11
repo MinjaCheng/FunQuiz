@@ -49,10 +49,11 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         launch {
             Log.d("!!!", "LAUNCH LOAD ALL QUESTIONS $question")
             val questions = loadAllQuestions()
+            Log.d("!!!", "QUESTIONS AWAITING $question")
             val questionList = questions.await()
 
             for (question in questionList) {
-                Log.d("!!!", "ITEM IN DATABASE: $question")
+                Log.d("!!!", "ITEM QUESTION IN DATABASE: $question")
             }
 
             //   questionsList = ListOfQuestions(this).getQuestions()
