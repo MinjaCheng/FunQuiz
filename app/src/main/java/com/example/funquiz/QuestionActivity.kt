@@ -1,14 +1,9 @@
 package com.example.funquiz
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
-import kotlinx.android.synthetic.main.activity_question.*
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -34,7 +29,6 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
-
         job = Job()
         db = AppDatabase.getInstance(this)
 
@@ -51,12 +45,14 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
             )
         )
 
-        val questions = loadAllQuestions()
 
         launch {
+            Log.d("!!!", "LAUNCH LOAD ALL QUESTIONS $question")
+            val questions = loadAllQuestions()
             val questionList = questions.await()
+
             for (question in questionList) {
-                Log.d("!!!", "item: $question")
+                Log.d("!!!", "ITEM IN DATABASE: $question")
             }
 
             //   questionsList = ListOfQuestions(this).getQuestions()
@@ -66,7 +62,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         }
     }
     fun addQuestion(question: Question) {
-
+        Log.d("!!!", "ADDING $question")
         launch(Dispatchers.IO) {
             db.questionDao.insert(question)
         }
@@ -74,10 +70,9 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
     fun loadAllQuestions(): Deferred<List<Question>> =
         async(Dispatchers.IO){
+            Log.d("!!!", "ADDING $question")
             db.questionDao.getAll()
         }
-
-
     }
 /*
     private fun createDots(count: Int) {
@@ -175,4 +170,3 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         }
     }
 */
-}
