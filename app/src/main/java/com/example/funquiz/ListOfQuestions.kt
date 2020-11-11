@@ -2,9 +2,9 @@ package com.example.funquiz
 
 import android.content.Context
 
-class ListOfQuestions(private val context: Context) {
+class ListOfQuestions(private val questions: MutableList<Question>) {
 
-    fun getQuestions(): ArrayList<Question> {
+ /*   fun getQuestions(): ArrayList<Question> {
 
         val questionList = ArrayList<Question>()
 
@@ -139,5 +139,5 @@ class ListOfQuestions(private val context: Context) {
         )
 
         return questionList
-    }
+    }*/
 }

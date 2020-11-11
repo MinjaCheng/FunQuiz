@@ -16,10 +16,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "question-items")
-            .fallbackToDestructiveMigration()
-            .build()
     }
 
     fun pressPlayButton(view: View) {

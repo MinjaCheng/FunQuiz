@@ -9,17 +9,25 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_question.*
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 const val TOTAL_QUESTIONS: String = "total_questions"
 const val CORRECT_ANSWERS: String = "correct_answers"
 
-class QuestionActivity : AppCompatActivity() {
+class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
-    lateinit var questionsList: ArrayList<Question>
+    private lateinit var job: Job
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+    private lateinit var questionsList: ListOfQuestions
     lateinit var question: Question
     private var currentPosition: Int = 0
     private var correctAnswers: Int = 0
     private var dotArray = mutableListOf<ImageView>()
+
+    private lateinit var db: AppDatabase
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,12 +35,46 @@ class QuestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
 
-        questionsList = ListOfQuestions(this).getQuestions()
-        createDots(questionsList.size)
+        job = Job()
+        db = AppDatabase.getInstance(this)
+/*
+        addQuestion(Question(
+            0,
+            "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?",
+            "ic_olive",
+            "25 000 kr",
+            "97 000 kr",
+            "400 000 kr",
+            "400 000 kr",
+            "Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4."
+        ))
+*/
+        loadAllWords()
 
-        setQuestion()
+     //   questionsList = ListOfQuestions(this).getQuestions()
+     //   createDots(questionsList.size)
+
+    //   setQuestion()
     }
 
+    private fun addQuestion(question: Question) {
+
+        launch(Dispatchers.IO) {
+            db.questionDao.insert(question)
+        }
+    }
+
+    fun loadAllWords() {
+        val words = async(Dispatchers.IO){
+            db.questionDao.getAll()
+        }
+
+        launch {
+            val list = words.await().toMutableList()
+            questionsList = ListOfQuestions(list)
+        }
+    }
+/*
     private fun createDots(count: Int) {
 
         for (i in 0 until count) {
@@ -127,4 +169,5 @@ class QuestionActivity : AppCompatActivity() {
             optionButtonThree.visibility = View.VISIBLE
         }
     }
+*/
 }
