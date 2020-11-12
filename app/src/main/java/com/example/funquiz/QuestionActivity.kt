@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -32,20 +33,16 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         job = Job()
         db = AppDatabase.getInstance(this)
 
-        val q1 = Question(
-            0,
-            "Hur mycket tror du att American Airlines sparade per år när de 1987 tog bort en oliv från salladen som serverades i första klassen?",
-            "ic_olive",
-            "25 000 kr",
-            "97 000 kr",
-            "400 000 kr",
-            "400 000 kr",
-            "Under 1987 sparade American Airlines ca 400 000 kr genom att ta bort en oliv från salladen som serverades i första klassen. Ingen tycktes märka att antalet oliver minskats från 5 till 4."
-        )
+        //CONTEXT PASSERAR HÄR = THIS, I FRAGMENT ÄR DET requireContext()
+        //VILKET GÖR ATT DU KOMMER ÅT RESOURCES I ListOfQuestions -> gör att du kan göra getString() mm där
+        val listOfQuest = ListOfQuestions(this).getQuestions()
 
-        Log.d("!!!", "Add questions function: $question")
-        addQuestion(q1)
-
+        //LOOPA IGENOM VARJE question i LISTAN som skapas ovan
+        listOfQuest.forEach {
+            //it = Question - i denna loopen
+            Log.d("!!!", "Add questions function: $it")
+            addQuestion(it)
+        }
 
         launch {
             Log.d("!!!", "LAUNCH LOAD ALL QUESTIONS $question")
@@ -73,7 +70,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
     fun loadAllQuestions(): Deferred<List<Question>> =
         async(Dispatchers.IO){
-            Log.d("!!!", "GetAll: $question")
+            Log.d("!!!", "Deferred List - Get All from questionDao: $question")
             db.questionDao.getAll()
         }
     }
