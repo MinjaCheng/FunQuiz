@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
 class Question (
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "question") var question: String,
-    @ColumnInfo(name = "image") var image: Int?,
+    var image: Int?,
     @ColumnInfo(name = "optionOne") var optionOne: String,
     @ColumnInfo(name = "optionTwo") var optionTwo: String,
     @ColumnInfo(name = "optionThree") var optionThree: String,

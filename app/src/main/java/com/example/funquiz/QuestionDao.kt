@@ -1,5 +1,6 @@
 package com.example.funquiz
 
+import android.os.FileObserver.DELETE
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
@@ -14,6 +15,9 @@ interface QuestionDao {
 
     @Query("SELECT * FROM quiz")
     fun getAll(): List<Question>
+
+    @Query("DELETE FROM quiz")
+    fun clearTable()
 
     @Insert
     fun insert(question: Question)
