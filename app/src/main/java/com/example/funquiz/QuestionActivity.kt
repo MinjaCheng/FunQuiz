@@ -41,8 +41,9 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         listOfQuest.forEach {
             //it = Question - i denna loopen
             Log.d("!!!", "Add questions function: $it")
-            addQuestion(it)
+     //       addQuestion(it)
         }
+
 
         launch {
             Log.d("!!!", "LAUNCH LOAD ALL QUESTIONS $question")
