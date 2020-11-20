@@ -32,7 +32,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
     private lateinit var db: AppDatabase
 
 
-    var listOfQuestions: MutableList<Question>? = null
+    var listOfQuestions: MutableList<Question> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -41,7 +41,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         job = Job()
         db = AppDatabase.getInstance(this)
 
-       // db.questionDao.clearTable()
+        // db.questionDao.clearTable()
 
         //CONTEXT PASSERAR HÄR = THIS, I FRAGMENT ÄR DET requireContext()
         //VILKET GÖR ATT DU KOMMER ÅT RESOURCES I ListOfQuestions -> gör att du kan göra getString() mm där
@@ -49,18 +49,19 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
         //LOOPA IGENOM VARJE question i LISTAN som skapas ovan
         listOfQuest.forEach {
-            //it = Question - i denna loopen
+            //it = Question - i denna loop
             Log.d("!!!", "Add questions function: $it")
-         //   addQuestion(it)
+            // addQuestion(it)
         }
 
         db.questionDao.getAllLiveData().observe(this, Observer {
-            it.forEach{
-                Log.d("!!!", "${it.question}")
+            it.forEach {
+                Log.d("!!!", "Observer list: ${it.question}")
             }
-            listOfQuestions?.addAll(it)
+            listOfQuestions.addAll(it)
+            createDots(listOfQuestions.size)
+            setQuestion()
         })
-
 
 
 //        question = listOfQuestions!![0]
@@ -75,26 +76,21 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 //                Log.d("!!!", "ITEM QUESTION IN DATABASE: $question")
 //            }
 //
-//            //   questionsList = ListOfQuestions(this).getQuestions()
-//            //   createDots(questionsList.size)
+//           // questionsList = ListOfQuestions(this).getQuestions()
 //
-//            //
+
 //        }
+
     }
 
-    override fun onStart() {
-        super.onStart()
-        setQuestion()
+    fun addQuestion(question: Question) {
+        Log.d("!!!", "ADDING $question")
+        launch(Dispatchers.IO) {
+            Log.d("!!!", "QuestionDao INSERT: $question")
+            db.questionDao.insert(question)
+        }
     }
 
-//    fun addQuestion(question: Question) {
-//        Log.d("!!!", "ADDING $question")
-//        launch(Dispatchers.IO) {
-//            Log.d("!!!", "QuestionDao INSERT: $question")
-//            db.questionDao.insert(question)
-//        }
-//    }
-//
 //    fun loadAllQuestions(): Deferred<List<Question>> =
 //        async(Dispatchers.IO){
 //            Log.d("!!!", "Deferred List - Get All from questionDao: $question")
@@ -115,8 +111,8 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
     private fun setQuestion() {
 
-        question = listOfQuestions!!.get(currentPosition)
-
+        question = listOfQuestions[currentPosition]
+        Log.d("!!!", "current quest: $question")
 
         dotArray[currentPosition].setImageResource(R.drawable.ic_dot_active)
 
@@ -126,7 +122,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
 
-        if (currentPosition < listOfQuestions!!.size.minus(1)) {
+        if (currentPosition < listOfQuestions.size.minus(1)) {
             nextQueButton.text = getString(R.string.nextQueButton_next)
         } else {
             nextQueButton.text = getString(R.string.nextQueButton_finish)
@@ -169,7 +165,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
     fun nextQuestionButton(view: View) {
 
-        if (currentPosition < listOfQuestions?.size!!) {
+        if (currentPosition < listOfQuestions.size) {
 
             toggleButton(false)
 
@@ -178,7 +174,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
         } else {
             val intent = Intent(this, ResultActivity::class.java)
             intent.putExtra(CORRECT_ANSWERS, correctAnswers)
-            intent.putExtra(TOTAL_QUESTIONS, listOfQuestions?.size)
+            intent.putExtra(TOTAL_QUESTIONS, listOfQuestions.size)
             startActivity(intent)
         }
     }

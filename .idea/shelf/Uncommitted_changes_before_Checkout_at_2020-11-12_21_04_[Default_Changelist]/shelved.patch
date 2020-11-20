@@ -1,0 +1,143 @@
+Index: app/src/main/java/com/example/funquiz/Question.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.funquiz\n\nimport android.graphics.drawable.Drawable\nimport androidx.room.ColumnInfo\nimport androidx.room.Entity\nimport androidx.room.Ignore\nimport androidx.room.PrimaryKey\n\n@Entity(tableName = \"quiz\")\nclass Question (\n    @PrimaryKey(autoGenerate = true) val id: Int,\n    @ColumnInfo(name = \"question\") var question: String,\n    @ColumnInfo(name = \"image\") var image: Int?,\n    @ColumnInfo(name = \"optionOne\") var optionOne: String,\n    @ColumnInfo(name = \"optionTwo\") var optionTwo: String,\n    @ColumnInfo(name = \"optionThree\") var optionThree: String,\n    @ColumnInfo(name = \"correctOption\") var correctOption: String,\n    @ColumnInfo(name = \"fact\") var fact: String\n)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/funquiz/Question.kt	(revision c2bbd69e2d4175176a982982bf62de6daedb3075)
++++ app/src/main/java/com/example/funquiz/Question.kt	(date 1605141008000)
+@@ -3,7 +3,6 @@
+ import android.graphics.drawable.Drawable
+ import androidx.room.ColumnInfo
+ import androidx.room.Entity
+-import androidx.room.Ignore
+ import androidx.room.PrimaryKey
+ 
+ @Entity(tableName = "quiz")
+Index: app/src/main/java/com/example/funquiz/ListOfQuestions.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.funquiz\n\nimport android.content.Context\n\nclass ListOfQuestions(context: Context) {\n\n    val res = context.resources\n\n    fun getQuestions(): MutableList<Question> {\n\n        val q1 =\n            Question(\n                1,\n                res.getString(R.string.qOne),\n                R.drawable.ic_dead,\n                res.getString(R.string.qOne_optOne),\n                res.getString(R.string.qOne_optTwo),\n                res.getString(R.string.qOne_optThree),\n                res.getString(R.string.qOne_correctOpt),\n                res.getString(R.string.qOne_fact)\n            )\n\n\n        val q2 =\n            Question(\n                2,\n                res.getString(R.string.qTwo),\n                R.drawable.ic_dead,\n                res.getString(R.string.qTwo_optOne),\n                res.getString(R.string.qTwo_optTwo),\n                res.getString(R.string.qTwo_optThree),\n                res.getString(R.string.qTwo_correctOpt),\n                res.getString(R.string.qTwo_fact)\n            )\n\n        val q3 =\n            Question(\n                3,\n                res.getString(R.string.qThree),\n                R.drawable.ic_hippo,\n                res.getString(R.string.qThree_optOne),\n                res.getString(R.string.qThree_optTwo),\n                res.getString(R.string.qThree_optThree),\n                res.getString(R.string.qThree_correctOpt),\n                res.getString(R.string.qThree_fact)\n            )\n//\n//        questionList.add(\n//            Question(\n//                4,\n//                context.getString(R.string.qFour),\n//                R.drawable.ic_birthday_cake,\n//                context.getString(R.string.qFour_optOne),\n//                context.getString(R.string.qFour_optTwo),\n//                context.getString(R.string.qFour_optThree),\n//                context.getString(R.string.qFour_correctOpt),\n//                context.getString(R.string.qFour_fact)\n//            )\n//        )\n//\n//        questionList.add(\n//            Question(\n//                5,\n//                context.getString(R.string.qFive),\n//                R.drawable.ic_toothpick,\n//                context.getString(R.string.qFive_optOne),\n//                context.getString(R.string.qFive_optTwo),\n//                context.getString(R.string.qFive_optThree),\n//                context.getString(R.string.qFive_correctOpt),\n//                context.getString(R.string.qFive_fact)\n//            )\n//        )\n//\n//        questionList.add(\n//            Question(\n//                6,\n//                context.getString(R.string.qSix),\n//                R.drawable.ic_redlight,\n//                context.getString(R.string.qSix_optOne),\n//                context.getString(R.string.qSix_optTwo),\n//                context.getString(R.string.qSix_optThree),\n//                context.getString(R.string.qSix_correctOpt),\n//                context.getString(R.string.qSix_fact)\n//            )\n//        )\n//\n//        questionList.add(\n//            Question(\n//                7,\n//                context.getString(R.string.qSeven),\n//                R.drawable.ic_brain,\n//                context.getString(R.string.qSeven_optOne),\n//                context.getString(R.string.qSeven_optTwo),\n//                context.getString(R.string.qSeven_optThree),\n//                context.getString(R.string.qSeven_correctOpt),\n//                context.getString(R.string.qSeven_fact)\n//            )\n//        )\n//\n//        questionList.add(\n//            Question(\n//                8,\n//                context.getString(R.string.qEight),\n//                R.drawable.ic_lefthand,\n//                context.getString(R.string.qEight_optOne),\n//                context.getString(R.string.qEight_optTwo),\n//                context.getString(R.string.qEight_optThree),\n//                context.getString(R.string.qEight_correctOpt),\n//                context.getString(R.string.qEight_fact)\n//            )\n//        )\n//\n//        questionList.add(\n//            Question(\n//                9,\n//                context.getString(R.string.qNine),\n//                R.drawable.ic_laughing,\n//                context.getString(R.string.qNine_optOne),\n//                context.getString(R.string.qNine_optTwo),\n//                context.getString(R.string.qNine_optThree),\n//                context.getString(R.string.qNine_correctOpt),\n//                context.getString(R.string.qNine_fact)\n//            )\n//        )\n//\n//        questionList.add(\n//            Question(\n//                10,\n//                context.getString(R.string.qTen),\n//                R.drawable.ic_working_ant,\n//                context.getString(R.string.qTen_optOne),\n//                context.getString(R.string.qTen_optTwo),\n//                context.getString(R.string.qTen_optThree),\n//                context.getString(R.string.qTen_correctOpt),\n//                context.getString(R.string.qTen_fact)\n//            )\n//        )\n\n        return mutableListOf(q1, q2, q3)\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/funquiz/ListOfQuestions.kt	(revision c2bbd69e2d4175176a982982bf62de6daedb3075)
++++ app/src/main/java/com/example/funquiz/ListOfQuestions.kt	(date 1605142553000)
+@@ -6,44 +6,44 @@
+ 
+     val res = context.resources
+ 
+-    fun getQuestions(): MutableList<Question> {
+-
+-        val q1 =
+-            Question(
+-                1,
+-                res.getString(R.string.qOne),
+-                R.drawable.ic_dead,
+-                res.getString(R.string.qOne_optOne),
+-                res.getString(R.string.qOne_optTwo),
+-                res.getString(R.string.qOne_optThree),
+-                res.getString(R.string.qOne_correctOpt),
+-                res.getString(R.string.qOne_fact)
+-            )
++   fun getQuestions(): MutableList<Question> {
++/*
++       val q1 =
++           Question(
++               1,
++               res.getString(R.string.qOne),
++               R.drawable.ic_olive,
++               res.getString(R.string.qOne_optOne),
++               res.getString(R.string.qOne_optTwo),
++               res.getString(R.string.qOne_optThree),
++               res.getString(R.string.qOne_correctOpt),
++               res.getString(R.string.qOne_fact)
++           )
+ 
+ 
+-        val q2 =
+-            Question(
+-                2,
+-                res.getString(R.string.qTwo),
+-                R.drawable.ic_dead,
+-                res.getString(R.string.qTwo_optOne),
+-                res.getString(R.string.qTwo_optTwo),
+-                res.getString(R.string.qTwo_optThree),
+-                res.getString(R.string.qTwo_correctOpt),
+-                res.getString(R.string.qTwo_fact)
+-            )
++       val q2 =
++           Question(
++               2,
++               res.getString(R.string.qTwo),
++               R.drawable.ic_dead,
++               res.getString(R.string.qTwo_optOne),
++               res.getString(R.string.qTwo_optTwo),
++               res.getString(R.string.qTwo_optThree),
++               res.getString(R.string.qTwo_correctOpt),
++               res.getString(R.string.qTwo_fact)
++           )
+ 
+-        val q3 =
+-            Question(
+-                3,
+-                res.getString(R.string.qThree),
+-                R.drawable.ic_hippo,
+-                res.getString(R.string.qThree_optOne),
+-                res.getString(R.string.qThree_optTwo),
+-                res.getString(R.string.qThree_optThree),
+-                res.getString(R.string.qThree_correctOpt),
+-                res.getString(R.string.qThree_fact)
+-            )
++       val q3 =
++           Question(
++               3,
++               res.getString(R.string.qThree),
++               R.drawable.ic_hippo,
++               res.getString(R.string.qThree_optOne),
++               res.getString(R.string.qThree_optTwo),
++               res.getString(R.string.qThree_optThree),
++               res.getString(R.string.qThree_correctOpt),
++               res.getString(R.string.qThree_fact)
++
+ //
+ //        questionList.add(
+ //            Question(
+@@ -134,8 +134,8 @@
+ //                context.getString(R.string.qTen_correctOpt),
+ //                context.getString(R.string.qTen_fact)
+ //            )
+-//        )
++//        )*/
+ 
+-        return mutableListOf(q1, q2, q3)
+-    }
++       return mutableListOf()
++   }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/funquiz/QuestionActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.funquiz\n\nimport android.os.Bundle\nimport android.util.Log\nimport android.widget.ImageView\nimport androidx.appcompat.app.AppCompatActivity\nimport androidx.core.content.res.ResourcesCompat\nimport kotlinx.coroutines.*\nimport kotlin.coroutines.CoroutineContext\n\nconst val TOTAL_QUESTIONS: String = \"total_questions\"\nconst val CORRECT_ANSWERS: String = \"correct_answers\"\n\nclass QuestionActivity : AppCompatActivity(), CoroutineScope {\n\n    private lateinit var job: Job\n    override val coroutineContext: CoroutineContext\n        get() = Dispatchers.Main + job\n\n    private lateinit var questionsList: ListOfQuestions\n    lateinit var question: Question\n    private var currentPosition: Int = 0\n    private var correctAnswers: Int = 0\n    private var dotArray = mutableListOf<ImageView>()\n\n    private lateinit var db: AppDatabase\n\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_question)\n        job = Job()\n        db = AppDatabase.getInstance(this)\n\n        //CONTEXT PASSERAR HÄR = THIS, I FRAGMENT ÄR DET requireContext()\n        //VILKET GÖR ATT DU KOMMER ÅT RESOURCES I ListOfQuestions -> gör att du kan göra getString() mm där\n        val listOfQuest = ListOfQuestions(this).getQuestions()\n\n        //LOOPA IGENOM VARJE question i LISTAN som skapas ovan\n        listOfQuest.forEach {\n            //it = Question - i denna loopen\n            Log.d(\"!!!\", \"Add questions function: $it\")\n            addQuestion(it)\n        }\n\n        launch {\n            Log.d(\"!!!\", \"LAUNCH LOAD ALL QUESTIONS $question\")\n            val questions = loadAllQuestions()\n            Log.d(\"!!!\", \"QUESTIONS AWAITING $question\")\n            val questionList = questions.await()\n\n            for (question in questionList) {\n                Log.d(\"!!!\", \"ITEM QUESTION IN DATABASE: $question\")\n            }\n\n            //   questionsList = ListOfQuestions(this).getQuestions()\n            //   createDots(questionsList.size)\n\n            //   setQuestion()\n        }\n    }\n    fun addQuestion(question: Question) {\n        Log.d(\"!!!\", \"ADDING $question\")\n        launch(Dispatchers.IO) {\n            Log.d(\"!!!\", \"QuestionDao INSERT: $question\")\n            db.questionDao.insert(question)\n        }\n    }\n\n    fun loadAllQuestions(): Deferred<List<Question>> =\n        async(Dispatchers.IO){\n            Log.d(\"!!!\", \"Deferred List - Get All from questionDao: $question\")\n            db.questionDao.getAll()\n        }\n    }\n/*\n    private fun createDots(count: Int) {\n\n        for (i in 0 until count) {\n\n            val dotImage = ImageView(this)\n            dotArray.add(dotImage)\n            dotImage.setImageResource(R.drawable.ic_dot_inactive)\n            dotLinearLayout.addView(dotImage)\n        }\n    }\n\n    private fun setQuestion() {\n\n        question = questionsList[currentPosition]\n\n        dotArray[currentPosition].setImageResource(R.drawable.ic_dot_active)\n\n        questionTextView.text = question.question\n        imageView.setImageResource(question.image)\n        optionButtonOne.text = question.optionOne\n        optionButtonTwo.text = question.optionTwo\n        optionButtonThree.text = question.optionThree\n\n        if (currentPosition < questionsList.size - 1) {\n            nextQueButton.text = getString(R.string.nextQueButton_next)\n        } else {\n            nextQueButton.text = getString(R.string.nextQueButton_finish)\n        }\n    }\n\n    fun pressedButton(view: View) {\n\n        when (view.id) {\n            R.id.optionButtonOne -> {\n                selectedOption(question.optionOne)\n            }\n            R.id.optionButtonTwo -> {\n                selectedOption(question.optionTwo)\n            }\n            R.id.optionButtonThree -> {\n                selectedOption(question.optionThree)\n            }\n        }\n        toggleButton(true)\n        currentPosition++\n    }\n\n    @SuppressLint(\"StringFormatMatches\")\n    private fun selectedOption(selectedOption: String) {\n\n        if (question.correctOption == selectedOption) {\n\n            correctAnswerTextView.text = getString(R.string.correctAnswer_correct)\n            correctAnswerTextView.setTextColor(Color.parseColor(\"#00BB00\"))\n            dotArray[currentPosition].setImageResource(R.drawable.ic_dot_correct)\n            correctAnswers++\n        } else {\n            correctAnswerTextView.text = getString(R.string.correctAnswer_wrong, selectedOption)\n            correctAnswerTextView.setTextColor(Color.parseColor(\"#BB0000\"))\n            dotArray[currentPosition].setImageResource(R.drawable.ic_dot_incorrect)\n        }\n        factTextView.text = getString(R.string.fact, question.correctOption, question.fact)\n    }\n\n    fun nextQuestionButton(view: View) {\n\n        if (currentPosition < questionsList.size) {\n\n            toggleButton(false)\n\n            setQuestion()\n\n        } else {\n            val intent = Intent(this, ResultActivity::class.java)\n            intent.putExtra(CORRECT_ANSWERS, correctAnswers)\n            intent.putExtra(TOTAL_QUESTIONS, questionsList.size)\n            startActivity(intent)\n        }\n    }\n\n    private fun toggleButton(toggle: Boolean) {\n\n        if (toggle) {\n            factCard.visibility = View.VISIBLE\n            optionButtonOne.visibility = View.INVISIBLE\n            optionButtonTwo.visibility = View.INVISIBLE\n            optionButtonThree.visibility = View.INVISIBLE\n        } else {\n            factCard.visibility = View.INVISIBLE\n            optionButtonOne.visibility = View.VISIBLE\n            optionButtonTwo.visibility = View.VISIBLE\n            optionButtonThree.visibility = View.VISIBLE\n        }\n    }\n*/\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/funquiz/QuestionActivity.kt	(revision c2bbd69e2d4175176a982982bf62de6daedb3075)
++++ app/src/main/java/com/example/funquiz/QuestionActivity.kt	(date 1605142553000)
+@@ -36,13 +36,11 @@
+         //CONTEXT PASSERAR HÄR = THIS, I FRAGMENT ÄR DET requireContext()
+         //VILKET GÖR ATT DU KOMMER ÅT RESOURCES I ListOfQuestions -> gör att du kan göra getString() mm där
+         val listOfQuest = ListOfQuestions(this).getQuestions()
+-
+         //LOOPA IGENOM VARJE question i LISTAN som skapas ovan
+         listOfQuest.forEach {
+             //it = Question - i denna loopen
+             Log.d("!!!", "Add questions function: $it")
+-            addQuestion(it)
+-        }
++            addQuestion(it)       }
+ 
+         launch {
+             Log.d("!!!", "LAUNCH LOAD ALL QUESTIONS $question")
