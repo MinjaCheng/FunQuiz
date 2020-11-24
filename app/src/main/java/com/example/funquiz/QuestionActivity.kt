@@ -3,12 +3,14 @@ package com.example.funquiz
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_question.*
 import kotlinx.coroutines.*
@@ -45,7 +47,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
         //CONTEXT PASSERAR HÄR = THIS, I FRAGMENT ÄR DET requireContext()
         //VILKET GÖR ATT DU KOMMER ÅT RESOURCES I ListOfQuestions -> gör att du kan göra getString() mm där
-        val listOfQuest = ListOfQuestions(this).getQuestions()
+ /*       val listOfQuest = ListOfQuestions(this).getQuestions()
 
         //LOOPA IGENOM VARJE question i LISTAN som skapas ovan
         listOfQuest.forEach {
@@ -53,18 +55,17 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
             Log.d("!!!", "Add questions function: $it")
             // addQuestion(it)
         }
-
+*/
         db.questionDao.getAllLiveData().observe(this, Observer {
             it.forEach {
-                Log.d("!!!", "Observer list: ${it.question}")
+                Log.d("!!!", "Observer list: ${it.image}")
             }
             listOfQuestions.addAll(it)
             createDots(listOfQuestions.size)
             setQuestion()
         })
 
-
-//        question = listOfQuestions!![0]
+//        question = listOfQuestions[0]
 //
 //        launch {
 //            Log.d("!!!", "LAUNCH LOAD ALL QUESTIONS $question")
@@ -75,12 +76,7 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 //            for (question in questionList) {
 //                Log.d("!!!", "ITEM QUESTION IN DATABASE: $question")
 //            }
-//
-//           // questionsList = ListOfQuestions(this).getQuestions()
-//
-
 //        }
-
     }
 
     fun addQuestion(question: Question) {
@@ -113,11 +109,12 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
 
         question = listOfQuestions[currentPosition]
         Log.d("!!!", "current quest: $question")
-
         dotArray[currentPosition].setImageResource(R.drawable.ic_dot_active)
 
+        val imageDrawable = getQuestionImage(question.image)
+
         questionTextView.text = question.question
-        //imageView.setImageResource(question.image)
+        imageView.setImageDrawable(imageDrawable)
         optionButtonOne.text = question.optionOne
         optionButtonTwo.text = question.optionTwo
         optionButtonThree.text = question.optionThree
@@ -126,6 +123,22 @@ class QuestionActivity : AppCompatActivity(), CoroutineScope {
             nextQueButton.text = getString(R.string.nextQueButton_next)
         } else {
             nextQueButton.text = getString(R.string.nextQueButton_finish)
+        }
+    }
+
+    private fun getQuestionImage(int: Int): Drawable? {
+        return when(int) {
+            1 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_olive, null)
+            2 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_dead, null)
+            3 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_hippo, null)
+            4 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_birthday_cake, null)
+            5 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_toothpick, null)
+            6 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_redlight, null)
+            7 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_brain, null)
+            8 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_lefthand, null)
+            9 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_laughing, null)
+            10 -> ResourcesCompat.getDrawable(resources, R.drawable.ic_working_ant, null)
+            else -> ResourcesCompat.getDrawable(resources, R.drawable.ic_working_ant, null)
         }
     }
 

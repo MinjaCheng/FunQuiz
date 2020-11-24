@@ -1,6 +1,8 @@
 package com.example.funquiz
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.core.content.res.ResourcesCompat
 
 
 class ListOfQuestions(context: Context) {
@@ -9,11 +11,12 @@ class ListOfQuestions(context: Context) {
 
     fun getQuestions(): MutableList<Question> {
 
+
         val q1 =
             Question(
                 1,
                 res.getString(R.string.qOne),
-                R.drawable.ic_dead,
+                1,
                 res.getString(R.string.qOne_optOne),
                 res.getString(R.string.qOne_optTwo),
                 res.getString(R.string.qOne_optThree),
@@ -26,7 +29,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 2,
                 res.getString(R.string.qTwo),
-                R.drawable.ic_dead,
+                2,
                 res.getString(R.string.qTwo_optOne),
                 res.getString(R.string.qTwo_optTwo),
                 res.getString(R.string.qTwo_optThree),
@@ -38,7 +41,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 3,
                 res.getString(R.string.qThree),
-                R.drawable.ic_hippo,
+                3,
                 res.getString(R.string.qThree_optOne),
                 res.getString(R.string.qThree_optTwo),
                 res.getString(R.string.qThree_optThree),
@@ -50,7 +53,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 4,
                 res.getString(R.string.qFour),
-                R.drawable.ic_birthday_cake,
+                4,
                 res.getString(R.string.qFour_optOne),
                 res.getString(R.string.qFour_optTwo),
                 res.getString(R.string.qFour_optThree),
@@ -62,7 +65,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 5,
                 res.getString(R.string.qFive),
-                R.drawable.ic_toothpick,
+                5,
                 res.getString(R.string.qFive_optOne),
                 res.getString(R.string.qFive_optTwo),
                 res.getString(R.string.qFive_optThree),
@@ -75,7 +78,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 6,
                 res.getString(R.string.qSix),
-                R.drawable.ic_redlight,
+                6,
                 res.getString(R.string.qSix_optOne),
                 res.getString(R.string.qSix_optTwo),
                 res.getString(R.string.qSix_optThree),
@@ -87,7 +90,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 7,
                 res.getString(R.string.qSeven),
-                R.drawable.ic_brain,
+                7,
                 res.getString(R.string.qSeven_optOne),
                 res.getString(R.string.qSeven_optTwo),
                 res.getString(R.string.qSeven_optThree),
@@ -99,7 +102,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 8,
                 res.getString(R.string.qEight),
-                R.drawable.ic_lefthand,
+                8,
                 res.getString(R.string.qEight_optOne),
                 res.getString(R.string.qEight_optTwo),
                 res.getString(R.string.qEight_optThree),
@@ -112,7 +115,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 9,
                 res.getString(R.string.qNine),
-                R.drawable.ic_laughing,
+                9,
                 res.getString(R.string.qNine_optOne),
                 res.getString(R.string.qNine_optTwo),
                 res.getString(R.string.qNine_optThree),
@@ -124,7 +127,7 @@ class ListOfQuestions(context: Context) {
             Question(
                 10,
                 res.getString(R.string.qTen),
-                R.drawable.ic_working_ant,
+                10,
                 res.getString(R.string.qTen_optOne),
                 res.getString(R.string.qTen_optTwo),
                 res.getString(R.string.qTen_optThree),
